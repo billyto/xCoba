@@ -7,9 +7,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Find unused images on an xcode project.')
 parser.add_argument('path', help='Project path')
-
 args = parser.parse_args()
-print(args.path)
 
 path = args.path
 _digits = re.compile('\d')
