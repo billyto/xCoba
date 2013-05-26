@@ -24,9 +24,6 @@ source_list = []
 unused = []
 
 for dirname, dirnames, filenames in os.walk(path):
-    # print path to all subdirectories first.
-    # for subdirname in dirnames:
-    #     print os.path.join(dirname, subdirname)
 
     # print path to all filenames.
     for filename in filenames:
@@ -39,7 +36,6 @@ for dirname, dirnames, filenames in os.walk(path):
         if filename.endswith(".m") or filename.endswith(".plist") or filename.endswith(".xib"):
             path_to_file = os.path.join(dirname, filename)
             source_list.append(path_to_file)
-            #print path_to_file
 
     # Advanced usage:
     # editing the 'dirnames' list will stop os.walk() from recursing into there.
@@ -49,9 +45,6 @@ for dirname, dirnames, filenames in os.walk(path):
 
     if '3rdParty' in dirnames:
         dirnames.remove('3rdParty')
-
-# print(assets_list)
-print len(assets_list)
 
 for image in assets_list:
     is_used = False
@@ -70,7 +63,7 @@ for image in assets_list:
         if contains_digits(image_to_search):
             numbers = re.search('[0-9]+', image_to_search)
             img = re.sub(r'\d+', '%d', image_to_search)
-            # print img
+
             if not content.find(img) == -1:
                 is_used = True
                 break
@@ -78,8 +71,7 @@ for image in assets_list:
     if not is_used:
         unused.append(image)
 
-# print unused
-
 print '%d unused images found' % len(unused)
+
 for image in unused:
     print '* %s' % image
