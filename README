@@ -4,7 +4,7 @@ How to use:
 
 just run the python script wit the project as parameter:
 
-python main.py 'path_to_project'
+python xcoba.py 'path_to_project'
 
 
 For dynamic resource naming, the script will look for strings replacing the image number for '%d'.
